@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Zebra coffee@1.png",
+      "filename" : "Zebra coffee.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Zebra coffee 2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Zebra coffee 3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

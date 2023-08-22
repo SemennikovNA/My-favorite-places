@@ -27,6 +27,10 @@ class MainViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        let row = tableView
+        row.rowHeight = 80
+        row.backgroundColor = .darkGray
+        row.separatorColor = .black
         return listOfPlaces.count
     }
 
@@ -35,6 +39,7 @@ class MainViewController: UITableViewController {
         cell.textLabel?.text = listOfPlaces[indexPath.row]
         cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         cell.imageView?.image = UIImage(named: listOfPlaces[indexPath.row])
+        cell.backgroundColor = .gray
         return cell
     }
 

@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "The Saint Regis Astana@1.png",
+      "filename" : "The Saint Regis Astana.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "The Saint Regis Astana 2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "The Saint Regis Astana 3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
