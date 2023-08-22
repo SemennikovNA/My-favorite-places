@@ -35,13 +35,13 @@ class MainViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = listOfPlaces[indexPath.row]
-        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        cell.imageView?.image = UIImage(named: listOfPlaces[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
+        cell.nameLabel.text = listOfPlaces[indexPath.row]
+        cell.nameLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        cell.imageOfPlace.image = UIImage(named: listOfPlaces[indexPath.row])
         cell.backgroundColor = .gray
-        cell.imageView?.layer.cornerRadius = cell.frame.size.height / 2
-        cell.imageView?.clipsToBounds = true
+        cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.size.height / 2
+        cell.imageOfPlace.clipsToBounds = true
         return cell
     }
 
