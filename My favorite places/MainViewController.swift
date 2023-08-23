@@ -16,6 +16,7 @@ class MainViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "My favorite places"
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -36,10 +37,13 @@ class MainViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
         cell.nameLabel.text = places[indexPath.row].name
+        cell.nameLabel.textColor = .white
         cell.nameLabel.font = UIFont.boldSystemFont(ofSize: 20)
         cell.imageOfPlace.image = UIImage(named: places[indexPath.row].image)
         cell.locationLabel.text = places[indexPath.row].location
+        cell.locationLabel.textColor = .white
         cell.typeLabel.text = places[indexPath.row].type
+        cell.typeLabel.textColor = .white
         cell.backgroundColor = .black
         cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.size.height / 2
         cell.imageOfPlace.clipsToBounds = true
