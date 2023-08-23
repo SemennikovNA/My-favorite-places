@@ -28,8 +28,8 @@ class MainViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         let row = tableView
-        row.backgroundColor = .darkGray
-        row.separatorColor = .black
+        row.backgroundColor = .black
+        row.separatorColor = .white
         return places.count
     }
 
@@ -40,7 +40,7 @@ class MainViewController: UITableViewController {
         cell.imageOfPlace.image = UIImage(named: places[indexPath.row].image)
         cell.locationLabel.text = places[indexPath.row].location
         cell.typeLabel.text = places[indexPath.row].type
-        cell.backgroundColor = .gray
+        cell.backgroundColor = .black
         cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.size.height / 2
         cell.imageOfPlace.clipsToBounds = true
         return cell

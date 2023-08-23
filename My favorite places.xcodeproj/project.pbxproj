@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		111651732A95284C0024F514 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111651722A95284C0024F514 /* CustomTableViewCell.swift */; };
 		111E4D442A95C5B000892EEB /* PlaceModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111E4D432A95C5AF00892EEB /* PlaceModal.swift */; };
+		116AD1E32A96104100472334 /* NewPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116AD1E22A96104000472334 /* NewPlaceViewController.swift */; };
 		119A808F2A93CA64000D9126 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119A808E2A93CA64000D9126 /* AppDelegate.swift */; };
 		119A80912A93CA64000D9126 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119A80902A93CA64000D9126 /* SceneDelegate.swift */; };
 		119A80962A93CA64000D9126 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 119A80942A93CA64000D9126 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		111651722A95284C0024F514 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		111E4D432A95C5AF00892EEB /* PlaceModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModal.swift; sourceTree = "<group>"; };
+		116AD1E22A96104000472334 /* NewPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlaceViewController.swift; sourceTree = "<group>"; };
 		119A808B2A93CA64000D9126 /* My favorite places.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My favorite places.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		119A808E2A93CA64000D9126 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		119A80902A93CA64000D9126 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,8 +68,9 @@
 				119A809C2A93CA68000D9126 /* Info.plist */,
 				119A80992A93CA68000D9126 /* LaunchScreen.storyboard */,
 				119A80942A93CA64000D9126 /* Main.storyboard */,
-				111E4D432A95C5AF00892EEB /* PlaceModal.swift */,
 				119A80A22A93CC27000D9126 /* MainViewController.swift */,
+				116AD1E22A96104000472334 /* NewPlaceViewController.swift */,
+				111E4D432A95C5AF00892EEB /* PlaceModal.swift */,
 				119A80902A93CA64000D9126 /* SceneDelegate.swift */,
 			);
 			path = "My favorite places";
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				119A80A32A93CC27000D9126 /* MainViewController.swift in Sources */,
+				116AD1E32A96104100472334 /* NewPlaceViewController.swift in Sources */,
 				119A808F2A93CA64000D9126 /* AppDelegate.swift in Sources */,
 				111651732A95284C0024F514 /* CustomTableViewCell.swift in Sources */,
 				119A80912A93CA64000D9126 /* SceneDelegate.swift in Sources */,
@@ -224,7 +228,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -278,7 +282,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -298,9 +302,11 @@
 				DEVELOPMENT_TEAM = 4HU57HU93W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "My favorite places/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) photo use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -327,9 +333,11 @@
 				DEVELOPMENT_TEAM = 4HU57HU93W;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "My favorite places/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "$(PRODUCT_NAME) photo use";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
