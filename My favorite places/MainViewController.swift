@@ -11,7 +11,7 @@ class MainViewController: UITableViewController {
     
     //MARK: - Properties
     
-    var listOfPlaces = [ "ЖК 'Alpamys'", "Mega Silk Way", "Zebra coffee", "Ботанический сад", "The Saint Regis Astana"]
+    var places = Place.getPalces()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,25 +28,22 @@ class MainViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         let row = tableView
-        row.rowHeight = 80
         row.backgroundColor = .darkGray
         row.separatorColor = .black
-        return listOfPlaces.count
+        return places.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
-        cell.nameLabel.text = listOfPlaces[indexPath.row]
+        cell.nameLabel.text = places[indexPath.row].name
         cell.nameLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        cell.imageOfPlace.image = UIImage(named: listOfPlaces[indexPath.row])
+        cell.imageOfPlace.image = UIImage(named: places[indexPath.row].image)
+        cell.locationLabel.text = places[indexPath.row].location
+        cell.typeLabel.text = places[indexPath.row].type
         cell.backgroundColor = .gray
         cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.size.height / 2
         cell.imageOfPlace.clipsToBounds = true
         return cell
-    }
-
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 85
     }
     
     /*
@@ -93,5 +90,7 @@ class MainViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func cancelButton(segue: UIStoryboardSegue) {}
 
 }
