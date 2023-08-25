@@ -36,15 +36,26 @@ class MainViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
-        cell.nameLabel.text = places[indexPath.row].name
+        let place = places[indexPath.row]
+        
+        cell.backgroundColor = .black
+        
+        cell.nameLabel.text = place.name
         cell.nameLabel.textColor = .white
         cell.nameLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        cell.imageOfPlace.image = UIImage(named: places[indexPath.row].image)
-        cell.locationLabel.text = places[indexPath.row].location
+        
+        cell.locationLabel.text = place.location
         cell.locationLabel.textColor = .white
+        
         cell.typeLabel.text = places[indexPath.row].type
         cell.typeLabel.textColor = .white
-        cell.backgroundColor = .black
+        
+        
+        if place.image == nil {
+            cell.imageOfPlace.image = UIImage(named: place.restaurantImage!)
+        } else {
+            cell.imageOfPlace.image = place.image
+        }
         cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.size.height / 2
         cell.imageOfPlace.clipsToBounds = true
         return cell
@@ -95,6 +106,11 @@ class MainViewController: UITableViewController {
     }
     */
     
-    @IBAction func cancelButton(segue: UIStoryboardSegue) {}
+    @IBAction func unwindSegue(segue: UIStoryboardSegue) {
+        guard let newPlaceVC = segue.source as? NewPlaceViewController else { return }
+        newPlaceVC.saveNewPlace()
+        places.append(newPlaceVC.newPlace!)
+        tableView.reloadData()
+    }
 
 }

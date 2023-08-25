@@ -134,15 +134,13 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIp-Al-vuX">
                                                             <rect key="frame" x="0.0" y="0.0" width="50.333333333333336" height="23"/>
-                                                            <color key="backgroundColor" systemColor="labelColor"/>
                                                             <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Enter the name of the place" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tjx-Cd-DRZ">
                                                             <rect key="frame" x="0.0" y="23" width="370" height="44"/>
-                                                            <color key="backgroundColor" systemColor="labelColor"/>
-                                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                                         </textField>
@@ -163,7 +161,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="mXC-Gl-LXt" secondAttribute="trailing" constant="10" id="wOd-xg-gol"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="80" id="nw7-tR-YC2">
@@ -178,20 +176,17 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHT-YK-fis">
                                                             <rect key="frame" x="0.0" y="0.0" width="73.333333333333329" height="23"/>
-                                                            <color key="backgroundColor" systemColor="labelColor"/>
                                                             <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="20"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Enter the location of the place" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fio-Zq-Jki">
                                                             <rect key="frame" x="0.0" y="23" width="370" height="44"/>
-                                                            <color key="backgroundColor" systemColor="labelColor"/>
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                                         </textField>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="labelColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="Fio-Zq-Jki" secondAttribute="bottom" id="Knh-5V-1XM"/>
                                                         <constraint firstItem="Fio-Zq-Jki" firstAttribute="leading" secondItem="H0G-f4-JFs" secondAttribute="leading" id="idX-dE-qtm"/>
@@ -247,7 +242,7 @@
                                                 <constraint firstItem="UPd-Wh-t7J" firstAttribute="leading" secondItem="q6c-tg-Gf5" secondAttribute="leading" constant="10" id="fde-TK-OC0"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" systemColor="labelColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -261,24 +256,28 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dCo-pk-ZHq">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="Dhu-0v-heb" kind="unwind" unwindAction="cancelButtonWithSegue:" id="vMJ-df-eui"/>
+                                <action selector="cancelButton:" destination="XTI-Le-KOE" id="ont-cj-czs"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="ZKH-KN-8hf">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="Dhu-0v-heb" kind="unwind" unwindAction="unwindSegueWithSegue:" id="9lC-9l-fNq"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="imageOfPlace" destination="3v6-jl-d7S" id="61h-1V-q8l"/>
                         <outlet property="locationTextField" destination="Fio-Zq-Jki" id="73h-jL-KKE"/>
                         <outlet property="nameTextField" destination="tjx-Cd-DRZ" id="zDh-SY-De8"/>
+                        <outlet property="placeImage" destination="3v6-jl-d7S" id="61h-1V-q8l"/>
+                        <outlet property="saveButton" destination="ZKH-KN-8hf" id="VOk-Ao-KrS"/>
                         <outlet property="typeTextField" destination="tqO-Y3-6wj" id="yO8-Jw-qlN"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZjX-sp-WLd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Dhu-0v-heb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2681.5384615384614" y="21.327014218009477"/>
+            <point key="canvasLocation" x="2677" y="21"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="5Ct-af-JNl">
@@ -326,7 +325,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="noimage" width="666.66668701171875" height="666.66668701171875"/>
+        <image name="noimage" width="306.66665649414062" height="170.66667175292969"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
