@@ -8,8 +8,7 @@
 import UIKit
 
 class NewPlaceViewController: UITableViewController {
-    
-    var newPlace: Place?
+
     var imageIsChanged = false
     
     @IBOutlet var placeImage: UIImageView!
@@ -20,6 +19,7 @@ class NewPlaceViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureView()
         saveButton.isEnabled = false
         nameTextField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
@@ -99,7 +99,7 @@ class NewPlaceViewController: UITableViewController {
     }
     
     func saveNewPlace() {
-        
+
         var image: UIImage?
         
         if imageIsChanged {
@@ -108,12 +108,11 @@ class NewPlaceViewController: UITableViewController {
             image = UIImage(named: "nophoto")
         }
         
+        let imageData = image?.pngData()
         
-        newPlace = Place(name: nameTextField.text!,
-                         location: locationTextField.text,
-                         type: typeTextField.text,
-                         image: image,
-                         restaurantImage: nil)
+        
+       let newPlace = Place(name: nameTextField.text!, location: locationTextField.text, type: typeTextField.text, imageData: imageData!)
+        StorageManager.saveObject(place: newPlace)
     }
     
     
@@ -125,6 +124,7 @@ class NewPlaceViewController: UITableViewController {
 
 
 //MARK: - Text Field Delegate
+
 extension NewPlaceViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
