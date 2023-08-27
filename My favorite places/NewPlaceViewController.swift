@@ -8,8 +8,13 @@
 import UIKit
 
 class NewPlaceViewController: UITableViewController {
-
+    
+    //MARK: - Properties
+    
+    var currentPlace: Place?
     var imageIsChanged = false
+    
+    //MARK: - Outlets
     
     @IBOutlet var placeImage: UIImageView!
     @IBOutlet var nameTextField: UITextField!
@@ -17,12 +22,16 @@ class NewPlaceViewController: UITableViewController {
     @IBOutlet var typeTextField: UITextField!
     @IBOutlet var saveButton: UIBarButtonItem!
     
+    
+    //MARK: - Life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureView()
         saveButton.isEnabled = false
         nameTextField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        setupEditScreen()
     }
     
     //MARK: - Table view delegate
@@ -42,7 +51,7 @@ class NewPlaceViewController: UITableViewController {
             
             camera.setValue(cameraIcon, forKey: "image")
             camera.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
-    
+            
             
             let photo = UIAlertAction(title: "Photo", style: .default) { _ in
                 self.choiseImagePicker(.photoLibrary)
@@ -65,7 +74,37 @@ class NewPlaceViewController: UITableViewController {
         }
     }
     
-    //Configure view
+    
+    //MARK: - Methods
+    
+    func savePlace() {
+        
+        var image: UIImage?
+        
+        if imageIsChanged {
+            image = placeImage.image
+        } else {
+            image = UIImage(named: "nophoto")
+        }
+        
+        let imageData = image?.pngData()
+        
+        let newPlace = Place(name: nameTextField.text!, location: locationTextField.text, type: typeTextField.text, imageData: imageData!)
+        
+        if currentPlace != nil {
+            try! realm.write {
+                currentPlace?.name = newPlace.name
+                currentPlace?.location = newPlace.location
+                currentPlace?.type = newPlace.type
+                currentPlace?.imageData = newPlace.imageData
+            }
+        } else {
+            StorageManager.saveObject(place: newPlace)
+        }
+    }
+    
+    //MARK: - Private
+    
     private func configureView() {
         
         tableView.tableFooterView = UIView()
@@ -98,23 +137,29 @@ class NewPlaceViewController: UITableViewController {
         placeImage.backgroundColor = .black
     }
     
-    func saveNewPlace() {
-
-        var image: UIImage?
-        
-        if imageIsChanged {
-            image = placeImage.image
-        } else {
-            image = UIImage(named: "nophoto")
+    private func setupEditScreen() {
+        if currentPlace != nil {
+            setupNavigationBarItem()
+            imageIsChanged = true
+            saveButton.isEnabled = true
+            guard let data = currentPlace?.imageData, let image = UIImage(data: data) else { return }
+            placeImage.image = image
+            placeImage.contentMode = .scaleAspectFit
+            nameTextField.text = currentPlace?.name
+            locationTextField.text = currentPlace?.location
+            typeTextField.text = currentPlace?.type
         }
-        
-        let imageData = image?.pngData()
-        
-        
-       let newPlace = Place(name: nameTextField.text!, location: locationTextField.text, type: typeTextField.text, imageData: imageData!)
-        StorageManager.saveObject(place: newPlace)
     }
     
+    
+    private func setupNavigationBarItem() {
+        if let topItem = navigationController?.navigationBar.topItem {
+            topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+            topItem.backBarButtonItem?.tintColor = .white
+        }
+        navigationItem.leftBarButtonItem = nil
+        title = currentPlace?.name
+    }
     
     @IBAction func cancelButton(_ sender: Any) {
         dismiss(animated: true)
@@ -158,10 +203,10 @@ extension NewPlaceViewController: UIImagePickerControllerDelegate, UINavigationC
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         placeImage.image = info[.editedImage] as? UIImage
-        placeImage.contentMode = .scaleToFill
+        placeImage.contentMode = .scaleAspectFit
         imageIsChanged = true
         placeImage.clipsToBounds = true
         dismiss(animated: true)
     }
-
+    
 }
