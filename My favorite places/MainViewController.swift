@@ -8,12 +8,22 @@
 import UIKit
 import RealmSwift
 
-class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchControllerDelegate {
+    
     
     //MARK: - Properties
     
-    var places: Results<Place>!
-    var reversedSort = true
+    private var searchResults: Results<Place>!
+    private let search = UISearchController(searchResultsController: nil)
+    private var isFiltred: Bool {
+        return search.isActive && !searchIsEmpty
+    }
+    private var searchIsEmpty: Bool {
+        guard let text = search.searchBar.text else { return false }
+        return text.isEmpty
+    }
+    private var places: Results<Place>!
+    private var reversedSort = true
     
     //MARK: - Outlets
     
@@ -26,23 +36,48 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .black
+        
         title = "My favorite places"
         places = realm.objects(Place.self)
+        
+        //Search configure
+        search.searchResultsUpdater = self
+        search.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = search
+        definesPresentationContext = true
+        
+        navigationItem.searchController?.searchBar.searchTextField.textColor = .white
+        navigationItem.searchController?.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(
+            string: "Search",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        
     }
     
     // MARK: - Table view data source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        
         let row = tableView
         row.backgroundColor = .black
         row.separatorColor = .white
-        return places.isEmpty ? 0 : places.count
+        
+        if isFiltred {
+            return searchResults.count
+        } else {
+            return places.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
-        let place = places[indexPath.row]
+        
+        var place = Place()
+        
+        if isFiltred {
+            place = searchResults[indexPath.row]
+        } else {
+            place = places[indexPath.row]
+        }
         
         cell.backgroundColor = .black
         
@@ -104,7 +139,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBAction func sotredSelection(_ sender: UISegmentedControl) {
         sorted()
     }
-
+    
     
     //MARK: - Private
     
@@ -117,4 +152,20 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         tableView.reloadData()
     }
+}
+
+//MARK: - Search controller delegate
+
+extension MainViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        filterSearchContentText(text)
+    }
+    
+    private func filterSearchContentText(_ searchText: String) {
+        searchResults = places.filter("name CONTAINS[c] %@ OR location CONTAINS[c] %@", searchText, searchText)
+        tableView.reloadData()
+    }
+    
 }
