@@ -10,7 +10,25 @@ import UIKit
 
 class RatingControl: UIStackView {
     
-    private let starButtonSize: CGSize = (CGSize(width: 44.5, height: 44.5))
+    //MARK: - Properties
+    
+    @IBInspectable var starButtonSize: CGSize = CGSize(width: 44.0, height: 44.0) {
+        didSet {
+            createButton()
+        }
+    }
+    
+    @IBInspectable var starCount: Int = 5 {
+        didSet {
+            createButton()
+        }
+    }
+    
+    //MARK: - Private
+    
+    private var starsButtons = [UIButton]()
+    
+    //MARK: - Initialization
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,17 +40,35 @@ class RatingControl: UIStackView {
         createButton()
     }
     
+    //MARK: - Private methods
     
-    func createButton() {
+    private func createButton() {
         
-        let starButton = UIButton()
-        starButton.backgroundColor = .white
+        for button in starsButtons {
+            removeArrangedSubview(button)
+            button.removeFromSuperview()
+        }
         
-        starButton.translatesAutoresizingMaskIntoConstraints = false
-        starButton.heightAnchor.constraint(equalToConstant: starButtonSize.height).isActive = true
-        starButton.widthAnchor.constraint(equalToConstant: starButtonSize.width).isActive = true
+        starsButtons.removeAll()
         
-        addArrangedSubview(starButton)
+        for _ in 0..<starCount {
+            
+            let button = UIButton()
+            button.backgroundColor = .white
+            button.translatesAutoresizingMaskIntoConstraints = false
+            button.heightAnchor.constraint(equalToConstant: starButtonSize.height).isActive = true
+            button.widthAnchor.constraint(equalToConstant: starButtonSize.width).isActive = true
+            button.addTarget(self, action: #selector(starsButtonPressed(button:)), for: .touchUpInside)
+            button.layer.cornerRadius = starButtonSize.width / 2
+            addArrangedSubview(button)
+            starsButtons.append(button)
+        }
+    }
+    
+    //MARK: - objc methods
+    
+    @objc func starsButtonPressed(button: UIButton) {
+        print("Button pressed")
     }
     
 }

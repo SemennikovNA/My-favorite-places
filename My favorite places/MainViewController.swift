@@ -10,7 +10,6 @@ import RealmSwift
 
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchControllerDelegate {
     
-    
     //MARK: - Properties
     
     private var searchResults: Results<Place>!
@@ -117,7 +116,14 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showEdit" {
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
-            let place = places[indexPath.row]
+            let place: Place
+            
+            if isFiltred {
+                place = searchResults[indexPath.row]
+            } else {
+                place = places[indexPath.row]
+            }
+            
             let newPlaceCV = segue.destination as! NewPlaceViewController
             newPlaceCV.currentPlace = place
             }

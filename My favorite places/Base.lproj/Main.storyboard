@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="amU-av-Zz8">
-    <device id="retina6_0" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="amU-av-Zz8">
+    <device id="retina6_0" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,11 +13,12 @@
         <scene sceneID="872-we-yCT">
             <objects>
                 <tableViewController id="XTI-Le-KOE" customClass="NewPlaceViewController" customModule="My_favorite_places" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="FXn-10-D9e">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="FXn-10-D9e">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="sectionIndexBackgroundColor" systemColor="labelColor"/>
                         <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
@@ -40,6 +42,7 @@
                                                 <constraint firstItem="3v6-jl-d7S" firstAttribute="leading" secondItem="JXd-vS-JlE" secondAttribute="leading" id="mSz-Kp-PDl"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="80" id="YfP-aG-n08">
                                         <rect key="frame" x="0.0" y="310" width="390" height="80"/>
@@ -81,7 +84,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="80" id="nw7-tR-YC2">
                                         <rect key="frame" x="0.0" y="390" width="390" height="80"/>
@@ -121,6 +124,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="80" id="vs7-Em-nOF">
                                         <rect key="frame" x="0.0" y="470" width="390" height="80"/>
@@ -162,25 +166,33 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="80" id="RLr-nI-PSi">
-                                        <rect key="frame" x="0.0" y="550" width="390" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="140" id="RLr-nI-PSi">
+                                        <rect key="frame" x="0.0" y="550" width="390" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RLr-nI-PSi" id="ruf-yN-hF8">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZXb-R0-RY9" customClass="RatingControl" customModule="My_favorite_places" customModuleProvider="target">
-                                                    <rect key="frame" x="95" y="-15" width="200" height="110"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZXb-R0-RY9" customClass="RatingControl" customModule="My_favorite_places" customModuleProvider="target">
+                                                    <rect key="frame" x="60" y="41" width="270" height="58"/>
                                                 </stackView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="ZXb-R0-RY9" firstAttribute="centerY" secondItem="ruf-yN-hF8" secondAttribute="centerY" id="MOH-ku-J1I"/>
-                                                <constraint firstItem="ZXb-R0-RY9" firstAttribute="centerX" secondItem="ruf-yN-hF8" secondAttribute="centerX" id="qbc-Sr-sSn"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ZXb-R0-RY9" secondAttribute="trailing" constant="40" id="7i4-Q9-adL"/>
+                                                <constraint firstItem="ZXb-R0-RY9" firstAttribute="centerY" secondItem="ruf-yN-hF8" secondAttribute="centerY" id="Hqz-IH-nyC"/>
+                                                <constraint firstItem="ZXb-R0-RY9" firstAttribute="centerX" secondItem="ruf-yN-hF8" secondAttribute="centerX" id="UPU-m0-3Es"/>
+                                                <constraint firstItem="ZXb-R0-RY9" firstAttribute="centerX" secondItem="ruf-yN-hF8" secondAttribute="centerX" id="abh-f5-Lv1"/>
+                                                <constraint firstItem="ZXb-R0-RY9" firstAttribute="top" secondItem="ruf-yN-hF8" secondAttribute="topMargin" constant="30" id="cMl-hR-W1r"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ZXb-R0-RY9" secondAttribute="bottom" constant="30" id="l9M-5U-fTW"/>
+                                                <constraint firstItem="ZXb-R0-RY9" firstAttribute="leading" secondItem="ruf-yN-hF8" secondAttribute="leadingMargin" constant="40" id="lXh-OO-7cO"/>
+                                                <constraint firstItem="ZXb-R0-RY9" firstAttribute="centerY" secondItem="ruf-yN-hF8" secondAttribute="centerY" id="q4Y-7o-FgD"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="separatorInset" minX="200" minY="0.0" maxX="200" maxY="0.0"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -215,7 +227,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZjX-sp-WLd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Dhu-0v-heb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1716.9230769230769" y="21.327014218009477"/>
+            <point key="canvasLocation" x="1731" y="166"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="Arf-29-hPS">
@@ -374,7 +386,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="dke-op-KGU"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8qk-iH-jvv">
-                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="22"/>
