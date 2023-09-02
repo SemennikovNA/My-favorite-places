@@ -98,17 +98,19 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     // MARK: - Tabel view delegate
-    
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let place = places[indexPath.row]
-        
-        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { _, _ in
-            StorageManager.deleteObject(place: place)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-        }
-        return [deleteAction]
-    }
-    
+
+     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+     
+     let place = places[indexPath.row]
+     let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
+
+         StorageManager.deleteObject(place: place)
+         tableView.deleteRows(at: [indexPath], with: .automatic)
+     }
+     let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
+
+     return swipeActions
+ }
     
     // MARK: - Navigation
     
@@ -118,8 +120,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let place = places[indexPath.row]
             let newPlaceCV = segue.destination as! NewPlaceViewController
             newPlaceCV.currentPlace = place
+            }
         }
-    }
     
     //MARK: - Actions
     

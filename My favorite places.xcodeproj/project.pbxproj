@@ -17,6 +17,7 @@
 		119A80982A93CA68000D9126 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 119A80972A93CA68000D9126 /* Assets.xcassets */; };
 		119A809B2A93CA68000D9126 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 119A80992A93CA68000D9126 /* LaunchScreen.storyboard */; };
 		119A80A32A93CC27000D9126 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119A80A22A93CC27000D9126 /* MainViewController.swift */; };
+		11B46C182AA30500007FF4DC /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B46C172AA30500007FF4DC /* RatingControl.swift */; };
 		172AADBBE8FD999E4BB90A2D /* Pods_My_favorite_places.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDBA2E948F002F51927B84E6 /* Pods_My_favorite_places.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		119A809A2A93CA68000D9126 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		119A809C2A93CA68000D9126 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		119A80A22A93CC27000D9126 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		11B46C172AA30500007FF4DC /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		AD523DE67BA5D5C6CE36C355 /* Pods-My favorite places.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My favorite places.release.xcconfig"; path = "Target Support Files/Pods-My favorite places/Pods-My favorite places.release.xcconfig"; sourceTree = "<group>"; };
 		FCADB1CEE7421C744D1F8509 /* Pods-My favorite places.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My favorite places.debug.xcconfig"; path = "Target Support Files/Pods-My favorite places/Pods-My favorite places.debug.xcconfig"; sourceTree = "<group>"; };
 		FDBA2E948F002F51927B84E6 /* Pods_My_favorite_places.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_favorite_places.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +84,7 @@
 				111E4D432A95C5AF00892EEB /* PlaceModal.swift */,
 				119A80902A93CA64000D9126 /* SceneDelegate.swift */,
 				11369A232A9A6F6F005230E2 /* StorageManager.swift */,
+				11B46C172AA30500007FF4DC /* RatingControl.swift */,
 			);
 			path = "My favorite places";
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				116AD1E32A96104100472334 /* NewPlaceViewController.swift in Sources */,
 				119A808F2A93CA64000D9126 /* AppDelegate.swift in Sources */,
 				11369A242A9A6F6F005230E2 /* StorageManager.swift in Sources */,
+				11B46C182AA30500007FF4DC /* RatingControl.swift in Sources */,
 				111651732A95284C0024F514 /* CustomTableViewCell.swift in Sources */,
 				119A80912A93CA64000D9126 /* SceneDelegate.swift in Sources */,
 				111E4D442A95C5B000892EEB /* PlaceModal.swift in Sources */,
