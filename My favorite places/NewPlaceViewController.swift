@@ -11,8 +11,9 @@ class NewPlaceViewController: UITableViewController {
     
     //MARK: - Properties
     
-    var currentPlace: Place?
+    var currentPlace: Place!
     var imageIsChanged = false
+    var rating = RatingControl()
     
     //MARK: - Outlets
     
@@ -89,7 +90,7 @@ class NewPlaceViewController: UITableViewController {
         
         let imageData = image?.pngData()
         
-        let newPlace = Place(name: nameTextField.text!, location: locationTextField.text, type: typeTextField.text, imageData: imageData!)
+        let newPlace = Place(name: nameTextField.text!, location: locationTextField.text, type: typeTextField.text, imageData: imageData!, rating: Double(rating.rating))
         
         if currentPlace != nil {
             try! realm.write {

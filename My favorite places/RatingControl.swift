@@ -24,6 +24,12 @@ class RatingControl: UIStackView {
         }
     }
     
+    var rating = 0 {
+        didSet{
+            
+        }
+    }
+    
     //MARK: - Private
     
     private var starsButtons = [UIButton]()
@@ -51,10 +57,20 @@ class RatingControl: UIStackView {
         
         starsButtons.removeAll()
         
+        
+        let emptyStar = UIImage(named: "emptyStar")
+        let filledStar = UIImage(named: "filledStar")
+        let highlitedStar = UIImage(named: "highlitedStar")
+        
         for _ in 0..<starCount {
             
             let button = UIButton()
-            button.backgroundColor = .white
+            
+            button.setImage(emptyStar, for: .normal)
+            button.setImage(filledStar, for: .selected)
+            button.setImage(highlitedStar, for: .highlighted)
+            button.setImage(highlitedStar, for: [.highlighted, .selected])
+            
             button.translatesAutoresizingMaskIntoConstraints = false
             button.heightAnchor.constraint(equalToConstant: starButtonSize.height).isActive = true
             button.widthAnchor.constraint(equalToConstant: starButtonSize.width).isActive = true

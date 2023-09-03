@@ -273,6 +273,9 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paD-fl-fjd">
                                                             <rect key="frame" x="0.0" y="0.0" width="249.66666666666666" height="27.666666666666668"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="150" id="YZK-6y-dGZ"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
