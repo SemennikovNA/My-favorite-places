@@ -22,7 +22,7 @@
                         <color key="sectionIndexBackgroundColor" systemColor="labelColor"/>
                         <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
-                            <tableViewSection id="Byh-Dw-rkS">
+                            <tableViewSection footerTitle="" id="Byh-Dw-rkS">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="260" id="4tS-sK-sVV">
                                         <rect key="frame" x="0.0" y="50" width="390" height="260"/>
@@ -175,20 +175,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZXb-R0-RY9" customClass="RatingControl" customModule="My_favorite_places" customModuleProvider="target">
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="equalCentering" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZXb-R0-RY9" customClass="RatingControl" customModule="My_favorite_places" customModuleProvider="target">
                                                     <rect key="frame" x="60" y="41" width="270" height="58"/>
                                                 </stackView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="ZXb-R0-RY9" secondAttribute="trailing" constant="40" id="7i4-Q9-adL"/>
-                                                <constraint firstItem="ZXb-R0-RY9" firstAttribute="centerY" secondItem="ruf-yN-hF8" secondAttribute="centerY" id="Hqz-IH-nyC"/>
-                                                <constraint firstItem="ZXb-R0-RY9" firstAttribute="centerX" secondItem="ruf-yN-hF8" secondAttribute="centerX" id="UPU-m0-3Es"/>
-                                                <constraint firstItem="ZXb-R0-RY9" firstAttribute="centerX" secondItem="ruf-yN-hF8" secondAttribute="centerX" id="abh-f5-Lv1"/>
-                                                <constraint firstItem="ZXb-R0-RY9" firstAttribute="top" secondItem="ruf-yN-hF8" secondAttribute="topMargin" constant="30" id="cMl-hR-W1r"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="ZXb-R0-RY9" secondAttribute="bottom" constant="30" id="l9M-5U-fTW"/>
-                                                <constraint firstItem="ZXb-R0-RY9" firstAttribute="leading" secondItem="ruf-yN-hF8" secondAttribute="leadingMargin" constant="40" id="lXh-OO-7cO"/>
-                                                <constraint firstItem="ZXb-R0-RY9" firstAttribute="centerY" secondItem="ruf-yN-hF8" secondAttribute="centerY" id="q4Y-7o-FgD"/>
+                                                <constraint firstItem="ZXb-R0-RY9" firstAttribute="centerX" secondItem="ruf-yN-hF8" secondAttribute="centerX" id="7FT-hD-sD8"/>
+                                                <constraint firstItem="ZXb-R0-RY9" firstAttribute="centerY" secondItem="ruf-yN-hF8" secondAttribute="centerY" id="elb-IX-QbQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -220,6 +214,7 @@
                         <outlet property="locationTextField" destination="Fio-Zq-Jki" id="73h-jL-KKE"/>
                         <outlet property="nameTextField" destination="tjx-Cd-DRZ" id="zDh-SY-De8"/>
                         <outlet property="placeImage" destination="3v6-jl-d7S" id="61h-1V-q8l"/>
+                        <outlet property="ratingStackView" destination="ZXb-R0-RY9" id="ILb-gI-hDe"/>
                         <outlet property="saveButton" destination="ZKH-KN-8hf" id="VOk-Ao-KrS"/>
                         <outlet property="typeTextField" destination="tqO-Y3-6wj" id="yO8-Jw-qlN"/>
                     </connections>
@@ -399,11 +394,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vCm-Ah-ROe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1718" y="-630"/>
+            <point key="canvasLocation" x="1731" y="-532"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="waJ-vL-0ih"/>
+        <segue reference="e80-7n-47a"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="noimage" width="306.66665649414062" height="170.66667175292969"/>

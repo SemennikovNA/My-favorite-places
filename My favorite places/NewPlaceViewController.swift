@@ -11,7 +11,7 @@ class NewPlaceViewController: UITableViewController {
     
     //MARK: - Properties
     
-    var currentPlace: Place?
+    var currentPlace: Place!
     var imageIsChanged = false
     
     //MARK: - Outlets
@@ -21,13 +21,14 @@ class NewPlaceViewController: UITableViewController {
     @IBOutlet var locationTextField: UITextField!
     @IBOutlet var typeTextField: UITextField!
     @IBOutlet var saveButton: UIBarButtonItem!
-    
+    @IBOutlet var ratingStackView: RatingControl!
     
     //MARK: - Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.tableFooterView = UIView()
         configureView()
         saveButton.isEnabled = false
         nameTextField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
@@ -89,7 +90,7 @@ class NewPlaceViewController: UITableViewController {
         
         let imageData = image?.pngData()
         
-        let newPlace = Place(name: nameTextField.text!, location: locationTextField.text, type: typeTextField.text, imageData: imageData!)
+        let newPlace = Place(name: nameTextField.text!, location: locationTextField.text, type: typeTextField.text, imageData: imageData!, rating: Double(ratingStackView.rating))
         
         if currentPlace != nil {
             try! realm.write {
@@ -97,6 +98,7 @@ class NewPlaceViewController: UITableViewController {
                 currentPlace?.location = newPlace.location
                 currentPlace?.type = newPlace.type
                 currentPlace?.imageData = newPlace.imageData
+                currentPlace?.rating = newPlace.rating
             }
         } else {
             StorageManager.saveObject(place: newPlace)
@@ -148,6 +150,7 @@ class NewPlaceViewController: UITableViewController {
             nameTextField.text = currentPlace?.name
             locationTextField.text = currentPlace?.location
             typeTextField.text = currentPlace?.type
+            ratingStackView.rating = Int(currentPlace!.rating)
         }
     }
     

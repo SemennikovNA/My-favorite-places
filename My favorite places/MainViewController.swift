@@ -54,6 +54,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     // MARK: - Table view data source
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         let row = tableView
@@ -68,8 +73,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
         var place = Place()
         
         if isFiltred {
@@ -93,6 +98,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.size.height / 2
         cell.imageOfPlace.clipsToBounds = true
+        
         return cell
     }
     
@@ -114,6 +120,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "showEdit" {
             guard let indexPath = tableView.indexPathForSelectedRow else { return }
             let place: Place
@@ -126,12 +133,14 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
             let newPlaceCV = segue.destination as! NewPlaceViewController
             newPlaceCV.currentPlace = place
+            
             }
         }
     
     //MARK: - Actions
     
     @IBAction func unwindSegue(segue: UIStoryboardSegue) {
+        
         guard let newPlaceVC = segue.source as? NewPlaceViewController else { return }
         newPlaceVC.savePlace()
         tableView.reloadData()
@@ -139,12 +148,14 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     @IBAction func reversedAction(_ sender: Any) {
+        
         reversedSort.toggle()
         sorted()
     }
     
     
     @IBAction func sotredSelection(_ sender: UISegmentedControl) {
+        
         sorted()
     }
     
@@ -169,11 +180,13 @@ extension MainViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
         filterSearchContentText(text)
+        
     }
     
     private func filterSearchContentText(_ searchText: String) {
         searchResults = places.filter("name CONTAINS[c] %@ OR location CONTAINS[c] %@", searchText, searchText)
         tableView.reloadData()
+        
     }
     
 }

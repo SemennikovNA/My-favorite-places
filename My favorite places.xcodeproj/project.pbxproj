@@ -82,9 +82,9 @@
 				119A80A22A93CC27000D9126 /* MainViewController.swift */,
 				116AD1E22A96104000472334 /* NewPlaceViewController.swift */,
 				111E4D432A95C5AF00892EEB /* PlaceModal.swift */,
+				11B46C172AA30500007FF4DC /* RatingControl.swift */,
 				119A80902A93CA64000D9126 /* SceneDelegate.swift */,
 				11369A232A9A6F6F005230E2 /* StorageManager.swift */,
-				11B46C172AA30500007FF4DC /* RatingControl.swift */,
 			);
 			path = "My favorite places";
 			sourceTree = "<group>";
