@@ -175,7 +175,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZXb-R0-RY9" customClass="RatingControl" customModule="My_favorite_places" customModuleProvider="target">
+                                                <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="270" placeholderIntrinsicHeight="58" distribution="equalCentering" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZXb-R0-RY9" customClass="RatingControl" customModule="My_favorite_places" customModuleProvider="target">
                                                     <rect key="frame" x="60" y="41" width="270" height="58"/>
                                                 </stackView>
                                             </subviews>
@@ -220,6 +220,7 @@
                         <outlet property="locationTextField" destination="Fio-Zq-Jki" id="73h-jL-KKE"/>
                         <outlet property="nameTextField" destination="tjx-Cd-DRZ" id="zDh-SY-De8"/>
                         <outlet property="placeImage" destination="3v6-jl-d7S" id="61h-1V-q8l"/>
+                        <outlet property="ratingStackView" destination="ZXb-R0-RY9" id="pzG-PU-otG"/>
                         <outlet property="saveButton" destination="ZKH-KN-8hf" id="VOk-Ao-KrS"/>
                         <outlet property="typeTextField" destination="tqO-Y3-6wj" id="yO8-Jw-qlN"/>
                     </connections>

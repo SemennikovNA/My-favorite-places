@@ -25,8 +25,8 @@ class RatingControl: UIStackView {
     }
     
     var rating = 0 {
-        didSet{
-            
+        didSet {
+            updateButtonPressed()
         }
     }
     
@@ -57,10 +57,18 @@ class RatingControl: UIStackView {
         
         starsButtons.removeAll()
         
+        let bundle = Bundle(for: type(of: self))
+        let emptyStar = UIImage(named: "emptyStar",
+                                in: bundle,
+                                compatibleWith: self.traitCollection)
         
-        let emptyStar = UIImage(named: "emptyStar")
-        let filledStar = UIImage(named: "filledStar")
-        let highlitedStar = UIImage(named: "highlitedStar")
+        let filledStar = UIImage(named: "filedStar",
+                                 in: bundle,
+                                 compatibleWith: self.traitCollection)
+        
+        let highlitedStar = UIImage(named: "highlitedStar",
+                                    in: bundle,
+                                    compatibleWith: self.traitCollection)
         
         for _ in 0..<starCount {
             
@@ -79,12 +87,30 @@ class RatingControl: UIStackView {
             addArrangedSubview(button)
             starsButtons.append(button)
         }
+        
+        updateButtonPressed()
     }
     
     //MARK: - objc methods
     
     @objc func starsButtonPressed(button: UIButton) {
-        print("Button pressed")
+        guard let index = starsButtons.firstIndex(of: button) else { return }
+        
+        let selectedRating = index + 1
+        
+        if selectedRating == self.rating {
+            rating = 0
+        } else {
+            rating = selectedRating
+        }
+        
+    }
+    
+    private func updateButtonPressed() {
+        
+        for (index, button) in starsButtons.enumerated() {
+            button.isSelected = index < rating
+        }
     }
     
 }

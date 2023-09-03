@@ -13,7 +13,7 @@ class NewPlaceViewController: UITableViewController {
     
     var currentPlace: Place!
     var imageIsChanged = false
-    var rating = RatingControl()
+    
     
     //MARK: - Outlets
     
@@ -22,7 +22,7 @@ class NewPlaceViewController: UITableViewController {
     @IBOutlet var locationTextField: UITextField!
     @IBOutlet var typeTextField: UITextField!
     @IBOutlet var saveButton: UIBarButtonItem!
-    
+    @IBOutlet var ratingStackView: RatingControl!
     
     //MARK: - Life cycle
     
@@ -90,7 +90,7 @@ class NewPlaceViewController: UITableViewController {
         
         let imageData = image?.pngData()
         
-        let newPlace = Place(name: nameTextField.text!, location: locationTextField.text, type: typeTextField.text, imageData: imageData!, rating: Double(rating.rating))
+        let newPlace = Place(name: nameTextField.text!, location: locationTextField.text, type: typeTextField.text, imageData: imageData!, rating: Double(ratingStackView.rating))
         
         if currentPlace != nil {
             try! realm.write {
@@ -98,6 +98,7 @@ class NewPlaceViewController: UITableViewController {
                 currentPlace?.location = newPlace.location
                 currentPlace?.type = newPlace.type
                 currentPlace?.imageData = newPlace.imageData
+                currentPlace.rating = newPlace.rating
             }
         } else {
             StorageManager.saveObject(place: newPlace)
@@ -149,6 +150,7 @@ class NewPlaceViewController: UITableViewController {
             nameTextField.text = currentPlace?.name
             locationTextField.text = currentPlace?.location
             typeTextField.text = currentPlace?.type
+            ratingStackView.rating = Int(currentPlace.rating)
         }
     }
     
