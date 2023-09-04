@@ -91,8 +91,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.typeLabel.textColor = .white
         cell.imageOfPlace.image = UIImage(data: place.imageData)
         
-        cell.imageOfPlace.layer.cornerRadius = cell.imageOfPlace.frame.size.height / 2
-        cell.imageOfPlace.clipsToBounds = true
+        cell.cosmosView.rating = places[indexPath.row].rating
+        
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -101,19 +102,19 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
-     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-     
-     let place = places[indexPath.row]
-     let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
-
-         StorageManager.deleteObject(place: place)
-         tableView.deleteRows(at: [indexPath], with: .automatic)
-     }
-     let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
-
-     return swipeActions
- }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let place = places[indexPath.row]
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
+            
+            StorageManager.deleteObject(place: place)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        let swipeActions = UISwipeActionsConfiguration(actions: [deleteAction])
+        
+        return swipeActions
+    }
     
     // MARK: - Navigation
     
@@ -130,8 +131,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
             let newPlaceCV = segue.destination as! NewPlaceViewController
             newPlaceCV.currentPlace = place
-            }
         }
+    }
     
     //MARK: - Actions
     
@@ -159,9 +160,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         if sortingSegmentedControl.selectedSegmentIndex == 0 {
             places = places.sorted(byKeyPath: "date", ascending: reversedSort)
-        } else {
+        }  else {
             places = places.sorted(byKeyPath: "name", ascending: reversedSort)
         }
+        
         tableView.reloadData()
     }
 }
