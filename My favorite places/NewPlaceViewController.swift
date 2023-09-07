@@ -79,14 +79,17 @@ class NewPlaceViewController: UITableViewController {
     //MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        guard let identifier = segue.identifier,
+              let mapVC = segue.destination as? MapViewController else { return }
+        mapVC.incomeSegueIdentifire = identifier
         
-        if segue.identifier != "showMapVC" { return }
-        
-        let mapVC = segue.destination as! MapViewController
-        mapVC.place.name = nameTextField.text!
-        mapVC.place.location = locationTextField.text
-        mapVC.place.type = typeTextField.text
-        mapVC.place.imageData = (placeImage.image?.pngData())!
+        if mapVC.incomeSegueIdentifire == "getLocationPlace" {
+            mapVC.place.name = nameTextField.text!
+            mapVC.place.location = locationTextField.text
+            mapVC.place.type = typeTextField.text
+            mapVC.place.imageData = (placeImage.image?.pngData())!
+        }
 
     }
     
