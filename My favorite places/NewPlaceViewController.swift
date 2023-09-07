@@ -14,7 +14,6 @@ class NewPlaceViewController: UITableViewController {
     var currentPlace: Place!
     var imageIsChanged = false
     
-    
     //MARK: - Outlets
     
     @IBOutlet var placeImage: UIImageView!
@@ -29,6 +28,7 @@ class NewPlaceViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.contentSize = CGSizeMake(self.tableView.frame.size.width, self.tableView.frame.size.height)
         configureView()
         saveButton.isEnabled = false
         nameTextField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
@@ -41,6 +41,7 @@ class NewPlaceViewController: UITableViewController {
         
         let cameraIcon = UIImage(named: "camera")
         let photoLibrary = UIImage(named: "photolibrary")
+        
         
         if indexPath.row == 0 {
             
@@ -75,18 +76,26 @@ class NewPlaceViewController: UITableViewController {
         }
     }
     
+    //MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier != "showMapVC" { return }
+        
+        let mapVC = segue.destination as! MapViewController
+        mapVC.place.name = nameTextField.text!
+        mapVC.place.location = locationTextField.text
+        mapVC.place.type = typeTextField.text
+        mapVC.place.imageData = (placeImage.image?.pngData())!
+
+    }
+    
     
     //MARK: - Methods
     
     func savePlace() {
         
-        var image: UIImage?
-        
-        if imageIsChanged {
-            image = placeImage.image
-        } else {
-            image = UIImage(named: "nophoto")
-        }
+        let image = imageIsChanged ? placeImage.image : UIImage(named: "nophoto")
         
         let imageData = image?.pngData()
         

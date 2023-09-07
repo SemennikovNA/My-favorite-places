@@ -94,6 +94,13 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.cosmosView.rating = places[indexPath.row].rating
         
         cell.selectionStyle = .none
+        
+        let attributedString = NSMutableAttributedString(string: cell.locationLabel.text!)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 10
+        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedString.length))
+        cell.locationLabel.attributedText = attributedString
+        
         return cell
     }
     
