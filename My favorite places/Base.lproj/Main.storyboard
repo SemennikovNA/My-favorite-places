@@ -318,11 +318,27 @@
                                     <action selector="doneButtonPressed:" destination="cEG-9Q-h1r" eventType="touchUpInside" id="ghw-Hh-MDv"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YUd-PL-bkK">
+                                <rect key="frame" x="118" y="736" width="154" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="1ks-k1-gg2"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="154" id="NNg-b3-te9"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="On the way">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="25"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="goButtonPressed" destination="cEG-9Q-h1r" eventType="touchUpInside" id="hnJ-Lv-bqu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VlN-Xy-HTC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="VlN-Xy-HTC" firstAttribute="trailing" secondItem="bbt-jR-9qf" secondAttribute="trailing" constant="15" id="Ix3-sO-Gc2"/>
+                            <constraint firstItem="VlN-Xy-HTC" firstAttribute="bottom" secondItem="YUd-PL-bkK" secondAttribute="bottom" constant="30" id="Jdl-YR-62d"/>
                             <constraint firstItem="bbt-jR-9qf" firstAttribute="leading" secondItem="zOw-6R-mKX" secondAttribute="trailing" constant="60" id="Riu-ah-X49"/>
                             <constraint firstItem="iNv-Ri-Nib" firstAttribute="centerX" secondItem="y4b-uZ-Z3A" secondAttribute="centerX" id="SXQ-8A-pbj"/>
                             <constraint firstItem="31V-7v-equ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VlN-Xy-HTC" secondAttribute="leading" symbolic="YES" id="TgT-K9-zo6"/>
@@ -330,6 +346,7 @@
                             <constraint firstItem="y40-ru-Gx8" firstAttribute="leading" secondItem="VlN-Xy-HTC" secondAttribute="leading" constant="16" id="YzD-0v-SnI"/>
                             <constraint firstItem="VlN-Xy-HTC" firstAttribute="trailing" secondItem="y40-ru-Gx8" secondAttribute="trailing" constant="16" id="aYi-N4-M87"/>
                             <constraint firstItem="v4B-09-lnm" firstAttribute="leading" secondItem="VlN-Xy-HTC" secondAttribute="leading" id="bTK-MD-Mza"/>
+                            <constraint firstItem="YUd-PL-bkK" firstAttribute="leading" secondItem="VlN-Xy-HTC" secondAttribute="leading" constant="118" id="cYw-rA-nV8"/>
                             <constraint firstItem="VlN-Xy-HTC" firstAttribute="bottom" secondItem="zOw-6R-mKX" secondAttribute="bottom" constant="28.666666666666629" id="cif-QY-XCC"/>
                             <constraint firstItem="v4B-09-lnm" firstAttribute="trailing" secondItem="VlN-Xy-HTC" secondAttribute="trailing" id="dBh-M4-cuZ"/>
                             <constraint firstItem="31V-7v-equ" firstAttribute="top" secondItem="VlN-Xy-HTC" secondAttribute="top" id="dmA-Td-vj6"/>
@@ -337,6 +354,7 @@
                             <constraint firstItem="iNv-Ri-Nib" firstAttribute="centerY" secondItem="y4b-uZ-Z3A" secondAttribute="centerY" constant="20" id="elx-2w-6cc"/>
                             <constraint firstItem="zOw-6R-mKX" firstAttribute="leading" secondItem="VlN-Xy-HTC" secondAttribute="leading" constant="143" id="iIR-kX-CZO"/>
                             <constraint firstItem="v4B-09-lnm" firstAttribute="top" secondItem="y40-ru-Gx8" secondAttribute="bottom" constant="-199" id="jbd-xy-lRB"/>
+                            <constraint firstItem="bbt-jR-9qf" firstAttribute="leading" secondItem="YUd-PL-bkK" secondAttribute="trailing" constant="36" id="pCr-IH-cac"/>
                             <constraint firstAttribute="bottom" secondItem="v4B-09-lnm" secondAttribute="bottom" id="rkJ-OY-EOD"/>
                             <constraint firstItem="v4B-09-lnm" firstAttribute="top" secondItem="y4b-uZ-Z3A" secondAttribute="top" id="vQO-KQ-7NK"/>
                             <constraint firstItem="bbt-jR-9qf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="VlN-Xy-HTC" secondAttribute="leading" id="wLc-16-yoV"/>
@@ -345,8 +363,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="0yI-vh-yep"/>
                     <connections>
-                        <outlet property="adressLabel" destination="y40-ru-Gx8" id="iy7-NX-jby"/>
+                        <outlet property="addressLabel" destination="y40-ru-Gx8" id="iy7-NX-jby"/>
                         <outlet property="doneButton" destination="zOw-6R-mKX" id="Ih8-uw-Zwi"/>
+                        <outlet property="goButton" destination="YUd-PL-bkK" id="Jho-hE-xlG"/>
                         <outlet property="mapView" destination="v4B-09-lnm" id="nPe-XH-Lho"/>
                         <outlet property="pinImage" destination="iNv-Ri-Nib" id="Drb-xD-nBz"/>
                     </connections>
