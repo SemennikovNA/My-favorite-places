@@ -23,7 +23,7 @@ Also added a convenient route on the map to your favorite place.
 <img src="media/1.png" width="273"/> <img src="media/1.1.png" width="273"/> <img src="media/1.2.png" width="273"/> 
 
 ## Animation
-<gif src="media/2.gif" width="273"/> <gif src="media/2.1.gif" width="273"/> <gif src="media/2.2.gif" 
+![](https://github.com/SemennikovNA/My-favorite-places/blob/main/media/2.gif)
 
 ## Contact me
 [LinkedIn](https://www.linkedin.com/in/nikita-semennikov-73a020253/ "https://www.linkedin.com/in/nikita-semennikov-73a020253/") | [Telegram](https://t.me/NikitaAndreevich10 "@NikitaAndreevich10") | [Email](mailto:semennikovna@yandex.ru "semennikovna@yandex.ru")
